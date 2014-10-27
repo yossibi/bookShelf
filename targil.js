@@ -25,6 +25,10 @@ function clearList(){
 	ul.innerHTML = '';
 }
 
+function removeItem(e) {
+	e.target.remove();
+}
+
 function addToList(book) {
 		var newElement = document.createElement("li");
 		var bookNameDiv = document.createElement("div");
@@ -36,9 +40,13 @@ function addToList(book) {
 		var scoreDiv = document.createElement("div");
 		scoreDiv.innerHTML = book.score;
 		scoreDiv.className = "right";
+		var x = document.createElement("span");
+		x.innerHTML = "X";
+		x.onclick = removeItem;
 		newElement.appendChild(bookNameDiv);
 		newElement.appendChild(authorNameDiv);
 		newElement.appendChild(scoreDiv);
+		newElement.appendChild(x);
 		var ul = document.getElementById("bookList");
 		ul.appendChild(newElement);
 }
