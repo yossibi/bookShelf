@@ -34,6 +34,7 @@ function submitEdit(e) {
 		var newValue = e.target.value;
 		var div = e.target.parentElement;
 		div.innerHTML = newValue;
+		e.target.parentElement.parentElement.children[3].style.display = "inline";
 	}
 }
 
