@@ -43,7 +43,7 @@ function addToList(book) {
 		var x = document.createElement("span");
 		x.innerHTML = "X";
 		//x.onclick = removeItem;
-		x.setAttribute("onclick", "removeItem(event, 5,7,8,9,0)")
+		x.setAttribute("onclick", "removeItem(event)");
 		newElement.appendChild(bookNameDiv);
 		newElement.appendChild(authorNameDiv);
 		newElement.appendChild(scoreDiv);
