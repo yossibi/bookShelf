@@ -30,7 +30,12 @@ function removeItem(e) {
 }
 
 function editItem(e){
-	
+	var divWeWantToReplace = e.target.parentElement.children[0];
+	var input = document.createElement("input");
+	input.setAttribute("type", "text");
+	input.setAttribute("value", divWeWantToReplace.innerHTML);
+	divWeWantToReplace.innerHTML = '';
+	divWeWantToReplace.appendChild(input);
 }
 
 function addToList(book) {
