@@ -49,59 +49,30 @@ function editItem(e){
 	e.target.style.display = "none";
 }
 
-function createDiv(html, className) {
-	var div = document.createElement("div");
-	div.innerHTML = html;
-	div.className = className;
-	return div;
-}
-
-function createSpan(html, onclickString) {
-	var span = document.createElement("span");
-	span.innerHTML = html;
-	span.setAttribute("onclick",onclickString);
-	return span;
-}
-
-function createLi(childrenArr) {
-	var newElement = document.createElement("li");	
-	var i;
-	for (i=0;i<childrenArr.length;i++) {
-		newElement.appendChild(childrenArr[i]);	
-	}
-	return newElement;
-}
-
-function addChildren(){
-	return [createDiv(book.bookName, "left"), createDiv(book.authorName, "center"), createDiv(book.score, "right"), createSpan("edit", "editItem(event)"), createSpan("X", "removeItem(event)")];
-}
-
 function addToList(book) {
-		var childrenArray = addChildren();
-		//var bookNameDiv = document.createElement("div");
-		//bookNameDiv.innerHTML = book.bookName;
-		//bookNameDiv.className = "left";
-		//var authorNameDiv = document.createElement("div");
-		//authorNameDiv.innerHTML = book.authorName;
-		//authorNameDiv.className = "center";
+		var newElement = document.createElement("li");
+		var bookNameDiv = document.createElement("div");
+		bookNameDiv.innerHTML = book.bookName;
+		bookNameDiv.className = "left";
+		var authorNameDiv = document.createElement("div");
+		authorNameDiv.innerHTML = book.authorName;
+		authorNameDiv.className = "center";
+		var scoreDiv = document.createElement("div");
+		scoreDiv.innerHTML = book.score;
+		scoreDiv.className = "right";
+		var x = document.createElement("span");
+		x.innerHTML = "X";
+		//x.onclick = removeItem;
+		x.setAttribute("onclick", "removeItem(event)");
 		
-		//var scoreDiv = document.createElement("div");
-		//scoreDiv.innerHTML = book.score;
-		//scoreDiv.className = "right";
-		
-		//var edit = document.createElement("span");
-		//edit.setAttribute("onclick", "editItem(event)");
-		//edit.innerHTML = "edit";
-		
-		//var x = document.createElement("span");
-		//x.innerHTML = "X";
-		//x.setAttribute("onclick", "removeItem(event)");
-		var newLi = createLi(childrenArray);
-		//newElement.appendChild(bookNameDiv);
-		//newElement.appendChild(authorNameDiv);
-		//newElement.appendChild(scoreDiv);
-		//newElement.appendChild(edit);
-		//newElement.appendChild(x);
+		var edit = document.createElement("span");
+		edit.setAttribute("onclick", "editItem(event)");
+		edit.innerHTML = "edit";
+		newElement.appendChild(bookNameDiv);
+		newElement.appendChild(authorNameDiv);
+		newElement.appendChild(scoreDiv);
+		newElement.appendChild(edit);
+		newElement.appendChild(x);
 		var ul = document.getElementById("bookList");
-		ul.appendChild(newLi);
+		ul.appendChild(newElement);
 }
