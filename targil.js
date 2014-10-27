@@ -72,29 +72,30 @@ function createLi(childrenArr) {
 	return newElement;
 }
 
+function addChildren(){
+	return [createDiv(book.bookName, "left"), createDiv(book.authorName, "center"), createDiv(book.score, "right"), createSpan("edit", "editItem(event)"), createSpan("X", "removeItem(event)")];
+}
+
 function addToList(book) {
-		var childrenArray = [];
-		childrenArray.push(createDiv(book.bookName, "left"));
+		var childrenArray = addChildren();
 		//var bookNameDiv = document.createElement("div");
 		//bookNameDiv.innerHTML = book.bookName;
 		//bookNameDiv.className = "left";
-		
-		childrenArray.push(createDiv(book.authorName, "center"));
 		//var authorNameDiv = document.createElement("div");
 		//authorNameDiv.innerHTML = book.authorName;
 		//authorNameDiv.className = "center";
-		childrenArray.push(createDiv(book.score, "right"));
+		
 		//var scoreDiv = document.createElement("div");
 		//scoreDiv.innerHTML = book.score;
 		//scoreDiv.className = "right";
-		childrenArray.push(createSpan("X", "removeItem(event)"));
-		//var x = document.createElement("span");
-		//x.innerHTML = "X";
-		//x.setAttribute("onclick", "removeItem(event)");
-		childrenArray.push(createSpan("edit", "editItem(event)"));
+		
 		//var edit = document.createElement("span");
 		//edit.setAttribute("onclick", "editItem(event)");
 		//edit.innerHTML = "edit";
+		
+		//var x = document.createElement("span");
+		//x.innerHTML = "X";
+		//x.setAttribute("onclick", "removeItem(event)");
 		var newLi = createLi(childrenArray);
 		//newElement.appendChild(bookNameDiv);
 		//newElement.appendChild(authorNameDiv);
