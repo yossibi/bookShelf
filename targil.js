@@ -26,7 +26,7 @@ function clearList(){
 }
 
 function removeItem(e) {
-	e.target.remove();
+	e.target.parentElement.remove();
 }
 
 function addToList(book) {
