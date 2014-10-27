@@ -45,6 +45,7 @@ function editItem(e){
 	input.setAttribute("onkeyup", "submitEdit(event)");
 	divWeWantToReplace.innerHTML = '';
 	divWeWantToReplace.appendChild(input);
+	e.target.style.display = "none";
 }
 
 function addToList(book) {
