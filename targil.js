@@ -20,6 +20,11 @@ function addBook(){
 	reset();
 }
 
+function clearList(){
+	var ul = document.getElementById("bookList");	
+	ul.innerHTML = '';
+}
+
 function addToList(book) {
 		var newElement = document.createElement("li");
 		var bookNameDiv = document.createElement("div");
