@@ -29,11 +29,20 @@ function removeItem(e) {
 	e.target.parentElement.remove();
 }
 
+function submitEdit(e) {
+	if (e.keyCode == 13) {
+		var newValue = e.target.value;
+		var div = e.target.parentElement;
+		div.innerHTML = newValue;
+	}
+}
+
 function editItem(e){
 	var divWeWantToReplace = e.target.parentElement.children[0];
 	var input = document.createElement("input");
 	input.setAttribute("type", "text");
 	input.setAttribute("value", divWeWantToReplace.innerHTML);
+	input.setAttribute("onkeyup", "submitEdit(event)");
 	divWeWantToReplace.innerHTML = '';
 	divWeWantToReplace.appendChild(input);
 }
