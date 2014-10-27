@@ -42,7 +42,8 @@ function addToList(book) {
 		scoreDiv.className = "right";
 		var x = document.createElement("span");
 		x.innerHTML = "X";
-		x.onclick = removeItem;
+		//x.onclick = removeItem;
+		x.setAttribute("onclick", "removeItem(event, 5,7,8,9,0)")
 		newElement.appendChild(bookNameDiv);
 		newElement.appendChild(authorNameDiv);
 		newElement.appendChild(scoreDiv);
