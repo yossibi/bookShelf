@@ -5,7 +5,7 @@ function Book (bookName, authorName, score) {
 };
 
 
-function reset(){
+function reset(e){
 	document.getElementById('bookName').value = "";
 	document.getElementById('authorName').value = "";
 	document.getElementById('score').value = "";
