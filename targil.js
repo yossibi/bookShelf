@@ -50,7 +50,7 @@ function submitEdit(e) {
 
 function editItem(e) {
 	if (e.target.innerHTML == "save") {
-		var li = e.target.parentElement.parentElement;
+		var li = e.target.parentElement;
 		e.target.innerHTML = "edit";
 		var bookName = li.children[0].children[0].value;
 		var authorName = li.children[1].children[0].value;
