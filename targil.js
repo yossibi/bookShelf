@@ -4,6 +4,8 @@ function Book (bookName, authorName, score) {
 	this.score = score;
 };
 
+var currentBookName;
+
 
 function reset(e){
 	document.getElementById('bookName').value = "";
@@ -36,9 +38,14 @@ function submitEdit(e) {
 		var div = e.target.parentElement;
 		div.innerHTML = newValue;
 	}
+	if (e.keyCode == 27) {
+		e.target.parentElement.parentElement.children[3].style.display = "inline";
+		var div = e.target.parentElement;
+		div.innerHTML = currentBookName;
+	}
 }
 
-function editItem(e){
+function editItem(e) {
 	var divWeWantToReplace = e.target.parentElement.children[0];
 	var input = document.createElement("input");
 	input.setAttribute("type", "text");
@@ -47,6 +54,7 @@ function editItem(e){
 	divWeWantToReplace.innerHTML = '';
 	divWeWantToReplace.appendChild(input);
 	e.target.style.display = "none";
+	currentBookName = divWeWantToReplace.innerHTML;
 }
 
 function addToList(book) {
