@@ -49,6 +49,16 @@ function submitEdit(e) {
 }
 
 function editItem(e) {
+	if (e.target.innerHTML == "save") {
+		var li = e.target.parentElement.parentElement;
+		e.target.innerHTML = "edit";
+		var bookName = li.children[0].children[0].value;
+		var authorName = li.children[1].children[0].value;
+		var score = li.children[2].children[0].value;
+		li.children[0].innerHTML = bookName;
+		li.children[1].innerHTML = authorName;
+		li.children[2].innerHTML = score;
+	} else {
 	var divWeWantToReplace = e.target.parentElement.children[0];
 	currentBookName = divWeWantToReplace.innerHTML;
 	var input = document.createElement("input");
@@ -57,7 +67,6 @@ function editItem(e) {
 	input.setAttribute("onkeyup", "submitEdit(event)");
 	divWeWantToReplace.innerHTML = '';
 	divWeWantToReplace.appendChild(input);
-	
 	var divWeWantToReplace2 = e.target.parentElement.children[1];
 	currentAuthorName = divWeWantToReplace2.innerHTML;
 	var input2 = document.createElement("input");
@@ -66,7 +75,6 @@ function editItem(e) {
 	input2.setAttribute("onkeyup", "submitEdit(event)");
 	divWeWantToReplace2.innerHTML = '';
 	divWeWantToReplace2.appendChild(input2);
-	
 	var divWeWantToReplace3 = e.target.parentElement.children[2];
 	currentScore = divWeWantToReplace3.innerHTML;
 	var input3 = document.createElement("input");
@@ -75,11 +83,8 @@ function editItem(e) {
 	input3.setAttribute("onkeyup", "submitEdit(event)");
 	divWeWantToReplace3.innerHTML = '';
 	divWeWantToReplace3.appendChild(input3);
-	
 	e.target.innerHTML = "save";
-	
-	
-	
+	}
 }
 
 function addToList(book) {
