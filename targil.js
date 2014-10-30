@@ -33,16 +33,18 @@ function removeItem(e) {
 }
 
 function submitEdit(e) {
-	if (e.keyCode == 13) {
+	/**if (e.keyCode == 13) {
 		e.target.parentElement.parentElement.children[3].style.display = "inline";
 		var newValue = e.target.value;
 		var div = e.target.parentElement;
 		div.innerHTML = newValue;
-	}
+	}**/
 	if (e.keyCode == 27) {
-		e.target.parentElement.parentElement.children[3].style.display = "inline";
-		var div = e.target.parentElement;
-		div.innerHTML = currentBookName;
+		e.target.parentElement.parentElement.children[3].innerHTML = "edit";
+		var li = e.target.parentElement.parentElement;
+		li.children[0].innerHTML = currentBookName;
+		li.children[1].innerHTML = currentAuthorName;
+		li.children[2].innerHTML = currentScore;
 	}
 }
 
