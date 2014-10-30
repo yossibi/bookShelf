@@ -47,6 +47,7 @@ function submitEdit(e) {
 
 function editItem(e) {
 	var divWeWantToReplace = e.target.parentElement.children[0];
+	currentBookName = divWeWantToReplace.innerHTML;
 	var input = document.createElement("input");
 	input.setAttribute("type", "text");
 	input.setAttribute("value", divWeWantToReplace.innerHTML);
@@ -54,7 +55,7 @@ function editItem(e) {
 	divWeWantToReplace.innerHTML = '';
 	divWeWantToReplace.appendChild(input);
 	e.target.style.display = "none";
-	currentBookName = divWeWantToReplace.innerHTML;
+	
 }
 
 function addToList(book) {
