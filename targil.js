@@ -5,7 +5,8 @@ function Book (bookName, authorName, score) {
 };
 
 var currentBookName;
-
+var currentAuthorName;
+var currentScore;
 
 function reset(e){
 	document.getElementById('bookName').value = "";
@@ -54,7 +55,28 @@ function editItem(e) {
 	input.setAttribute("onkeyup", "submitEdit(event)");
 	divWeWantToReplace.innerHTML = '';
 	divWeWantToReplace.appendChild(input);
-	e.target.style.display = "none";
+	
+	var divWeWantToReplace2 = e.target.parentElement.children[1];
+	currentAuthorName = divWeWantToReplace2.innerHTML;
+	var input2 = document.createElement("input");
+	input2.setAttribute("type", "text");
+	input2.setAttribute("value", divWeWantToReplace2.innerHTML);
+	input2.setAttribute("onkeyup", "submitEdit(event)");
+	divWeWantToReplace2.innerHTML = '';
+	divWeWantToReplace2.appendChild(input2);
+	
+	var divWeWantToReplace3 = e.target.parentElement.children[2];
+	currentScore = divWeWantToReplace3.innerHTML;
+	var input3 = document.createElement("input");
+	input3.setAttribute("type", "text");
+	input3.setAttribute("value", divWeWantToReplace3.innerHTML);
+	input3.setAttribute("onkeyup", "submitEdit(event)");
+	divWeWantToReplace3.innerHTML = '';
+	divWeWantToReplace3.appendChild(input3);
+	
+	e.target.innerHTML = "save";
+	
+	
 	
 }
 
