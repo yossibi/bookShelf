@@ -10,7 +10,7 @@ var currentScore;
 
 var booksArray = [];
 
-function noResultMessage (){
+var noResultMessage = function (){
 	var newElement = document.createElement("li");
 	var noResult = document.createElement("div");
 	noResult.innerHTML = "לא נמצא ספר התואם לחיפוש";
@@ -32,11 +32,12 @@ function search(){
 	for (var i=0;i<booksArray.length;i++) {
 		if (booksArray[i].bookName.indexOf(nameToSearchFor) > -1) {
 			searchResults.push(booksArray[i]);	
-		}else
-		{
-			addToList(noResultMessage);
 		}
+			
 	}
+if(searchResults.length ==0){
+	addToList(noResultMessage);
+}	
 	buildListFromArray(searchResults);
 }
 
