@@ -13,6 +13,9 @@ var noResultMessage = function(){
 	var newElement = document.createElement("li");
 	var noResult = document.createElement("div");
 	noResult.innerHTML = "לא נמצא ספר התואם לחיפוש";
+	newElement.appendChild(noResult);
+	var ul = document.getElementById("bookList");
+	ul.appendChild(newElement);
 }
 	
 function reset(e){
