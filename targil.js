@@ -9,7 +9,8 @@ var currentAuthorName;
 var currentScore;
 
 var booksArray = [];
-var noResultMessage = function(){
+
+function noResultMessage (){
 	var newElement = document.createElement("li");
 	var noResult = document.createElement("div");
 	noResult.innerHTML = "לא נמצא ספר התואם לחיפוש";
