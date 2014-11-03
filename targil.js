@@ -8,6 +8,8 @@ var currentBookName;
 var currentAuthorName;
 var currentScore;
 
+var booksArray = [];
+
 function reset(e){
 	document.getElementById('bookName').value = "";
 	document.getElementById('authorName').value = "";
@@ -19,9 +21,15 @@ function addBook(){
 	var authorName = document.getElementById('authorName').value;
 	var score = document.getElementById('score').value;
 	var book = new Book(bookName, authorName, score);
+	booksArray.push(book);
+	//buildListFromArray(booksArray);
 	addToList(book);
 	reset();
 }
+
+//function buildListFromArray(booksArray) {
+		
+//}
 
 function clearList(){
 	var ul = document.getElementById("bookList");	
