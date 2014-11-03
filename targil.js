@@ -9,7 +9,12 @@ var currentAuthorName;
 var currentScore;
 
 var booksArray = [];
-
+var noResultMessage = function(){
+	var newElement = document.createElement("li");
+	var noResult = document.createElement("div");
+	noResult.innerHTML = "לא נמצא ספר התואם לחיפוש";
+}
+	
 function reset(e){
 	document.getElementById('bookName').value = "";
 	document.getElementById('authorName').value = "";
@@ -23,6 +28,9 @@ function search(){
 	for (var i=0;i<booksArray.length;i++) {
 		if (booksArray[i].bookName.indexOf(nameToSearchFor) > -1) {
 			searchResults.push(booksArray[i]);	
+		}else
+		{
+			addToList(noResultMessage);
 		}
 	}
 	buildListFromArray(searchResults);
