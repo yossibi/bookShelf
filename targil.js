@@ -140,3 +140,8 @@ function addToList(book) {
 		var ul = document.getElementById("bookList");
 		ul.appendChild(newElement);
 }
+
+function clearListAndArray(){
+	clearList();
+	booksArray = [];
+}
