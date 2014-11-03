@@ -16,6 +16,24 @@ function reset(e){
 	document.getElementById('score').value = "";
 }
 
+function search(){
+	clearList();
+	var searchResults = [];
+	var nameToSearchFor = document.getElementById("searchName").value;
+	for (var i=0;i<booksArray.length;i++) {
+		if (booksArray[i].bookName.indexOf(nameToSearchFor) > -1) {
+			searchResults.push(booksArray[i]);	
+		}
+	}
+	buildListFromArray(searchResults);
+}
+
+function buildListFromArray(searchResults) {
+	for (var i=0;i<searchResults.length;i++) {
+		addToList(searchResults[i]);
+	}
+}
+
 function addBook(){
 	var bookName = document.getElementById('bookName').value;
 	var authorName = document.getElementById('authorName').value;
