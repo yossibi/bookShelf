@@ -7,38 +7,34 @@ function Book (bookName, authorName, score) {
 var currentBookName;
 var currentAuthorName;
 var currentScore;
-
+var to;
 var booksArray = [];
 
-var noResultMessage = function (){
-	var newElement = document.createElement("li");
-	var noResult = document.createElement("div");
-	noResult.innerHTML = "לא נמצא ספר התואם לחיפוש";
-	newElement.appendChild(noResult);
-	var ul = document.getElementById("bookList");
-	ul.appendChild(newElement);
-}
-	
+
 function reset(e){
 	document.getElementById('bookName').value = "";
 	document.getElementById('authorName').value = "";
 	document.getElementById('score').value = "";
 }
 
-function search(){
-	clearList();
-	var searchResults = [];
-	var nameToSearchFor = document.getElementById("searchName").value;
-	for (var i=0;i<booksArray.length;i++) {
-		if (booksArray[i].bookName.indexOf(nameToSearchFor) > -1) {
-			searchResults.push(booksArray[i]);	
+function performSearch(){
+		clearList();
+		var searchResults = [];
+		var nameToSearchFor = document.getElementById("searchName").value;
+		for (var i=0;i<booksArray.length;i++) {
+			if (booksArray[i].bookName.indexOf(nameToSearchFor) > -1) {
+				searchResults.push(booksArray[i]);	
+			}
 		}
-			
+		buildListFromArray(searchResults);	
 	}
-if(searchResults.length ==0){
-	addToList(noResultMessage);
-}	
-	buildListFromArray(searchResults);
+
+function search(){
+	if (to !== undefined) {
+		clearTimeout(to);
+	}
+	to = setTimeout(performSearch, 500);
+	
 }
 
 function buildListFromArray(searchResults) {
@@ -68,8 +64,31 @@ function clearList(){
 }
 
 function removeItem(e) {
+	var newArray = [];
+	var bookToDelete = e.target.parentElement.children[0].innerHTML;
+
+		for (var i=0;i<booksArray.length;i++) 
+		{
+			if (booksArray[i].bookName != bookToDelete) 
+			{
+				newArray.push(booksArray[i]);
+			}
+			
+		}
+	booksArray = newArray;
 	e.target.parentElement.remove();
 }
+
+function editArray(e){
+	
+	for (var i=0;i<booksArray.length;i++) 
+		{
+	booksArray[i].bookName = e.target.parentElement.parentElement.children[i].children[0].innerHTML;
+	booksArray[i].authorName = e.target.parentElement.parentElement.children[i].children[1].innerHTML;
+	booksArray[i].score = e.target.parentElement.parentElement.children[i].children[2].innerHTML;
+		}
+}
+
 
 function submitEdit(e) {
 	/**if (e.keyCode == 13) {
@@ -97,6 +116,7 @@ function editItem(e) {
 		li.children[0].innerHTML = bookName;
 		li.children[1].innerHTML = authorName;
 		li.children[2].innerHTML = score;
+		editArray(e);
 	} else {
 	var divWeWantToReplace = e.target.parentElement.children[0];
 	currentBookName = divWeWantToReplace.innerHTML;
